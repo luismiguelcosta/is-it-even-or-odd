@@ -104,37 +104,49 @@ loop do
     puts "Write a number please."
     user_second_choice = gets.chomp
 
-    if user_second_choice =~ /\A[-+]?\d*\.?\d+\z/
-      user_second_choice = user_second_choice.to_i
+    # loop do
 
-      if user_second_choice.even?
-        puts "It's even!"
-        # sleep(1)
-        puts "Do you want to try another number?"
-        user_first_choice = gets.chomp
+      if user_second_choice =~ /\A[-+]?\d*\.?\d+\z/
+        user_second_choice = user_second_choice.to_i
 
         loop do
 
-          if user_first_choice == "yes"
-            puts "Write a number please."
-            user_second_choice = gets.chomp
-          elsif user_first_choice == "no"
-            puts "Ok. Bye Bye!"
-            break
-          else
-            puts "Please just write yes or no."
-            user_first_choice = gets.chomp
+        if user_second_choice.even?
+          puts "It's even!"
+          # sleep(1)
+          puts "Do you want to try another number?"
+          user_first_choice = gets.chomp
+
+          loop do
+
+            if user_first_choice == "yes"
+              puts "Write a number please."
+              user_second_choice = gets.chomp
+            elsif user_first_choice == "no"
+              puts "Ok. Bye Bye!"
+              break
+            else
+              puts "Please just write yes or no."
+              user_first_choice = gets.chomp
+            end
+
           end
+
+        else user_second_choice.odd?
+          puts "It's odd!"
+          puts "Do you want to try another number?"
+          user_first_choice = gets.chomp
+        end
 
         end
 
-      else user_second_choice.odd?
-        puts "It's odd!"
+      elsif user_first_choice == "no"
+        puts "Ok. Bye Bye!"
+      else
+        puts "Incorrect input!"
       end
 
-    else
-      puts "Incorrect input!"
-    end
+    # end
 
   elsif user_first_choice == "no"
     puts "Ok. Bye Bye!"
@@ -142,6 +154,7 @@ loop do
   else
     puts "Please just write yes or no."
     user_first_choice = gets.chomp
+    # puts "Incorrect input!"
   end
 
 end
