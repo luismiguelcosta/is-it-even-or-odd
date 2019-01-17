@@ -35,7 +35,6 @@
 
 
 loop do
-
   puts "Do you want to know if a number is even or odd?"
   user_first_choice = gets.chomp
 
@@ -52,17 +51,18 @@ loop do
       user_second_choice = user_second_choice.to_i
 
       if user_second_choice.even?
-        puts "It's even!"
+        puts "#{user_second_choice} is an even number."
       else
-        puts "It's odd!"
+        puts "#{user_second_choice} is an odd number."
       end
 
+    else
+      puts "#{user_second_choice} is an incorrect input."
     end
 
   else
-    puts "Incorrect input."
+    puts "#{user_first_choice} is an incorrect input."
   end
-
 end
 
 puts "Bye Bye!"
